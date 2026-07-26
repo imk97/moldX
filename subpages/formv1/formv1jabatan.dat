@@ -1,0 +1,13 @@
+[Ini fail data untuk: formv1],0,// 1 adalah display
+subpages/formv1/css_form.css
+main_screen.php?f=0105030000000000000000000000000000000003,main_screen.php?f=0101000000000000000000000000000000000002
+A
+A
+A
+ADD NEW DEPARTMENT
+5,jabatan
+Nama Jabatan,nama_jabatan
+Nama Bangunan,nama_bangunan
+Nama Ketua Jabatan,nama_ketua_jabatan
+Jumlah Pekerja,jumlah_pekerja
+Jumlah Pekerja Pemalas,jumlah_pemalas

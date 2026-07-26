@@ -1,0 +1,12 @@
+[Ini fail data untuk: formv1],0,// 1 adalah display
+subpages/formv1/css_form.css
+main_screen.php?f=0105020000000000000000000000000000000003,main_screen.php?f=0101000000000000000000000000000000000002
+A
+A
+A
+ADD NEW MANAGEMENT
+4,user
+Username,user_name
+Password,password
+Real Name,real_name
+Employee Number,emp_no
