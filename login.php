@@ -7,10 +7,9 @@ session_start();
 
 //$_SESSION["sys_root"] = __DIR__;
 //$_SESSION["sys_url"]="/utmassetx/";
-// $_SESSION["sys_url"]="http://utmassetx.pijau.xyz/";
-// $_SESSION["sys_url"]= ($_SERVER["SERVER_NAME"] == "utmassetx.pijau.xyz") ?: "utmassetx.pijau.xyz/";
-// $_SESSION["sys_mainpage"]=$_SESSION["sys_url"]."main_screen.php?f=0101000000000000000000000000000000000002";
-$_SESSION["sys_mainpage"]="main_screen.php?f=0101000000000000000000000000000000000002";
+$_SESSION["sys_url"]="http://utmassetx.pijau.xyz/";
+$_SESSION["sys_mainpage"]=$_SESSION["sys_url"]."main_screen.php?f=0101000000000000000000000000000000000002";
+
 $_SESSION["host"] = 'localhost';
 $_SESSION["user"] = 'ajau';
 $_SESSION["password"] = 'mousehitam';
