@@ -35,7 +35,7 @@ $table_name = isset($lines[7][1]) ? trim($lines[7][1]) : '';
 <head>
     <meta charset="UTF-8">
     <title><?php echo htmlspecialchars($form_title); ?></title>
-    <link rel="stylesheet" href="<?php echo htmlspecialchars($css_file); ?>">
+    <link rel="stylesheet" href="<?php echo htmlspecialchars($css_file); ?>?v=<?php echo filemtime($css_file); ?>">
 </head>
 
 <body>

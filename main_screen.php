@@ -26,7 +26,7 @@ $level = menuEngine($menuCode2);
     .menu {
       background-color: #ece3ec;
       float: left;
-      width: 20%;
+      width: 15%;
       white-space: nowrap;
       overflow-x: auto;
     }
@@ -34,7 +34,7 @@ $level = menuEngine($menuCode2);
     .main {
       background-color: White Blue;
       float: left;
-      width: 80%;
+      width: 100%;
       /*padding: 0 20px;*/
       overflow: hidden;
     }
@@ -84,7 +84,7 @@ $level = menuEngine($menuCode2);
 
   <div class="tengah">
 
-    <div style="overflow:auto">
+    <div style="display:flex; flex-direction:row; overflow:auto" >
       <div class="menu">
         <?php
         if ($mainParam[1][0] == 1) {
