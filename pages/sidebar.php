@@ -1,6 +1,7 @@
 <?php
-echo '<br>&nbsp;&nbsp;&nbsp;&nbsp;MENU<br>';
+// echo '<br>&nbsp;&nbsp;&nbsp;&nbsp;MENU<br>';
 for ($i = 0; $i < count($level) - 5; $i++) {
+    echo $level[$i + 5][0];
     if ($level[$i + 5][0] > 0) {
         for ($ii = 1; $ii <= $level[$i + 5][0]; $ii++) {
             echo "&nbsp;&nbsp;";

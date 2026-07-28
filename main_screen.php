@@ -21,7 +21,7 @@ $level = menuEngine($menuCode2);
 
     body {
       font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', sans-serif;
-      background-color: #f7f5f0;
+      /* background-color: #f7f5f0; */
       /* Warm off-white */
       color: #4a4a4a;
       /* Dark charcoal */
@@ -37,11 +37,22 @@ $level = menuEngine($menuCode2);
 
     .menu {
       background-color: #ece3ec;
-      float: left;
-      width: 25%;
-      white-space: nowrap;
-      overflow-x: auto;
+      overflow-x: hidden;
+      padding-top: 20px;
       /* height: 100%; */
+      width: 300px;
+      position: relative;
+      z-index: 1;
+      top: auto;
+      left: 0;
+    }
+
+    .menu a {
+      padding: 6px 8px 6px 16px;
+      text-decoration: none;
+      /* font-size: 25px; */
+      /* color: #818181; */
+      display: block;
     }
 
     .main {
@@ -75,7 +86,8 @@ $level = menuEngine($menuCode2);
     ul.breadcrumbs li+li:before {
       padding: 8px;
       color: black;
-      content: "/\00a0";
+      /* content: "/\00a0"; */
+      content: ' \203A';
     }
 
     ul.breadcrumbs li a {
@@ -86,6 +98,11 @@ $level = menuEngine($menuCode2);
     ul.breadcrumbs li a:hover {
       color: #01447e;
       text-decoration: underline;
+    }
+
+    .header {
+      /* background-color: #f1f1f1; */
+      padding: 1px;
     }
 
     @media only screen and (max-width:800px) {
@@ -115,7 +132,7 @@ $level = menuEngine($menuCode2);
 
 <body style="font-family:Verdana;">
 
-  <div style="background-color:#f1f1f1;padding:1px;">
+  <div class="header">
     <?php
     if ($mainParam[0][0] == 1) {
       include "pages/" . $mainParam[0][1] . ".php";
