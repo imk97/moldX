@@ -19,16 +19,29 @@ $level = menuEngine($menuCode2);
       box-sizing: border-box;
     }
 
+    body {
+      font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', sans-serif;
+      background-color: #f7f5f0;
+      /* Warm off-white */
+      color: #4a4a4a;
+      /* Dark charcoal */
+      margin: 0;
+      /* padding: 40px 20px; */
+    }
+
     .tengah {
       background-color: GhostWhite;
+      width: 100%;
+      min-height: 100vh;
     }
 
     .menu {
       background-color: #ece3ec;
       float: left;
-      width: 15%;
+      width: 25%;
       white-space: nowrap;
       overflow-x: auto;
+      /* height: 100%; */
     }
 
     .main {
@@ -45,6 +58,34 @@ $level = menuEngine($menuCode2);
       width: 0%;
       /*padding: 10px 15px;*/
       /*margin-top: 7px;*/
+    }
+
+    ul.breadcrumbs {
+      margin: 0;
+      padding: 10px 16px;
+      list-style: none;
+      background-color: #eee;
+    }
+
+    ul.breadcrumbs li {
+      display: inline;
+      font-size: 18px;
+    }
+
+    ul.breadcrumbs li+li:before {
+      padding: 8px;
+      color: black;
+      content: "/\00a0";
+    }
+
+    ul.breadcrumbs li a {
+      color: #0275d8;
+      text-decoration: none;
+    }
+
+    ul.breadcrumbs li a:hover {
+      color: #01447e;
+      text-decoration: underline;
     }
 
     @media only screen and (max-width:800px) {
@@ -84,7 +125,7 @@ $level = menuEngine($menuCode2);
 
   <div class="tengah">
 
-    <div style="display:flex; flex-direction:row; overflow:auto" >
+    <div style="display:flex; flex-direction:row; overflow:auto; min-height:100vh;">
       <div class="menu">
         <?php
         if ($mainParam[1][0] == 1) {
@@ -95,13 +136,13 @@ $level = menuEngine($menuCode2);
 
       <div class="main">
 
-        <div style="text-align:left;font-size:12px; padding:10px;">
+        <ul class="breadcrumbs">
           <?php
           if ($mainParam[2][0] == 1) {
             include "pages/" . $mainParam[2][1] . ".php";
           }
           ?>
-        </div>
+        </ul>
 
         <div>
           <?php
