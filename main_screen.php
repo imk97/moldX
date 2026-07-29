@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html>
-
 <?php
 session_start();
 
@@ -11,190 +8,109 @@ $menuCode2 = $_GET['f'];
 include('function/menu_function_menuEngine.php');
 $level = menuEngine($menuCode2);
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AssetX</title>
+    <!-- Boxicons -->
+    <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/dist/boxicons.js' rel='stylesheet'> -->
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    <link href='https://cdn.boxicons.com/fonts/animations.min.css' rel='stylesheet'>
 
-    body {
-      font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', sans-serif;
-      /* background-color: #f7f5f0; */
-      /* Warm off-white */
-      color: #4a4a4a;
-      /* Dark charcoal */
-      margin: 0;
-      /* padding: 40px 20px; */
-    }
+    <!-- Tooltip only -->
+    <style>
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            /* border-bottom: 1px dotted black; */
+        }
 
-    .tengah {
-      background-color: GhostWhite;
-      width: 100%;
-      min-height: 100vh;
-    }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            /* bottom: 125%; */
+            top: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
 
-    .menu {
-      background-color: #ece3ec;
-      overflow-x: hidden;
-      padding-top: 20px;
-      /* height: 100%; */
-      width: 300px;
-      position: relative;
-      z-index: 1;
-      top: auto;
-      left: 0;
-    }
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            /* top: 100%; */
+            bottom: 100%;
+            /* At the top of the tooltip */
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
 
-    .menu a {
-      padding: 6px 8px 6px 16px;
-      text-decoration: none;
-      /* font-size: 25px; */
-      /* color: #818181; */
-      display: block;
-    }
-
-    .main {
-      background-color: White Blue;
-      float: left;
-      width: 100%;
-      /*padding: 0 20px;*/
-      overflow: hidden;
-    }
-
-    .right {
-      background-color: lightblue;
-      float: left;
-      width: 0%;
-      /*padding: 10px 15px;*/
-      /*margin-top: 7px;*/
-    }
-
-    ul.breadcrumbs {
-      margin: 0;
-      padding: 10px 16px;
-      list-style: none;
-      background-color: #eee;
-    }
-
-    ul.breadcrumbs li {
-      display: inline;
-      font-size: 18px;
-    }
-
-    ul.breadcrumbs li+li:before {
-      padding: 8px;
-      color: black;
-      /* content: "/\00a0"; */
-      content: ' \203A';
-    }
-
-    ul.breadcrumbs li a {
-      color: #0275d8;
-      text-decoration: none;
-    }
-
-    ul.breadcrumbs li a:hover {
-      color: #01447e;
-      text-decoration: underline;
-    }
-
-    .header {
-      /* background-color: #f1f1f1; */
-      padding: 1px;
-    }
-
-    @media only screen and (max-width:800px) {
-
-      /* For tablets: */
-      .main {
-        width: 80%;
-        padding: 0;
-      }
-
-      .right {
-        width: 100%;
-      }
-    }
-
-    @media only screen and (max-width:500px) {
-
-      /* For mobile phones: */
-      .menu,
-      .main,
-      .right {
-        width: 100%;
-      }
-    }
-  </style>
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
 </head>
 
-<body style="font-family:Verdana;">
-
-  <div class="header">
-    <?php
-    if ($mainParam[0][0] == 1) {
-      include "pages/" . $mainParam[0][1] . ".php";
-    }
-    ?>
-  </div>
-
-  <div class="tengah">
-
-    <div style="display:flex; flex-direction:row; overflow:auto; min-height:100vh;">
-      <div class="menu">
+<body>
+    <!-- header -->
+    <section class="header">
         <?php
-        if ($mainParam[1][0] == 1) {
-          include "pages/" . $mainParam[1][1] . ".php";
+        if ($mainParam[0][0] == 1) {
+            include "pages/" . $mainParam[0][1] . ".php";
         }
         ?>
-      </div>
+    </section>
 
-      <div class="main">
+    <section class="tengah">
 
-        <ul class="breadcrumbs">
-          <?php
-          if ($mainParam[2][0] == 1) {
-            include "pages/" . $mainParam[2][1] . ".php";
-          }
-          ?>
-        </ul>
-
-        <div>
-          <?php
-          if ($mainParam[3][0] == 1) {
-            include "pages/" . $mainParam[3][1] . ".php";
-          }
-          ?>
+        <!-- <div style="display:flex; flex-direction:row; overflow:auto; min-height:100vh;"> -->
+        <div class="menu">
+            <?php
+            if ($mainParam[1][0] == 1) {
+                include "pages/" . $mainParam[1][1] . ".php";
+            }
+            ?>
         </div>
-      </div>
 
-      <div class="right">
-        <!-- standby ruang ini -->
-      </div>
-    </div>
+        <div class="main">
 
-  </div>
+            <ul class="breadcrumbs">
+                <?php
+                // if ($mainParam[2][0] == 1) {
+                //     include "pages/" . $mainParam[2][1] . ".php";
+                // }
+                ?>
+            </ul>
 
-  <div style="background-color:#f1f1f1;text-align:center;font-size:12px; padding:1px;">
-    <?php
-    if ($mainParam[4][0] == 1) {
-      include "pages/" . $mainParam[4][1] . ".php";
-    }
-    ?>
+            <div>
+                <?php
+                // if ($mainParam[3][0] == 1) {
+                //     include "pages/" . $mainParam[3][1] . ".php";
+                // }
+                ?>
+            </div>
+        </div>
 
-  </div>
+        <div class="right">
+            <!-- standby ruang ini -->
+        </div>
+        <!-- </div> -->
 
-  <div style="background-color:#f1f100;text-align:left;font-size:12px; padding:1px;">
-    <?php
-    if ($mainParam[5][0] == 1) {
-      include "pages/" . $mainParam[5][1] . ".php";
-    }
-    ?>
-
-  </div>
-
+    </section>
 </body>
-
-</html>
