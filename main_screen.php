@@ -21,6 +21,32 @@ $level = menuEngine($menuCode2);
     <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link href='https://cdn.boxicons.com/fonts/animations.min.css' rel='stylesheet'>
 
+    <style>
+        /* .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 220px;
+            height: 100%;
+            background: var(--light);
+            z-index: 2000;
+            font-family: var(--lato);
+            transition: .3s ease;
+            overflow-x: hidden;
+            scrollbar-width: none;
+        } */
+
+        .tengah {
+            position: relative;
+            left: 220px;;
+            padding: 20px;
+            /* background: #555; */
+            width: 100vw;
+            height: 100%;
+            /* display: flex; */
+        }
+    </style>
+
     <!-- Tooltip only -->
     <style>
         .tooltip {
@@ -92,9 +118,9 @@ $level = menuEngine($menuCode2);
 
             <ul class="breadcrumbs">
                 <?php
-                // if ($mainParam[2][0] == 1) {
-                //     include "pages/" . $mainParam[2][1] . ".php";
-                // }
+                if ($mainParam[2][0] == 1) {
+                    include "pages/" . $mainParam[2][1] . ".php";
+                }
                 ?>
             </ul>
 
