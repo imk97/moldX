@@ -116,13 +116,13 @@ $level = menuEngine($menuCode2);
 
         <div class="main">
 
-            <ul class="breadcrumbs">
+            <div>
                 <?php
                 if ($mainParam[2][0] == 1) {
                     include "pages/" . $mainParam[2][1] . ".php";
                 }
                 ?>
-            </ul>
+            </div>
 
             <div>
                 <?php
