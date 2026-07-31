@@ -59,9 +59,9 @@
             --light-orange: #FFE0D3;
         }
 
-        html {
+        /* html {
             overflow-x: hidden;
-        }
+        } */
 
         body.dark {
             --light: #0C0C1E;

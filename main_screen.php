@@ -21,6 +21,7 @@ $level = menuEngine($menuCode2);
     <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
     <link href='https://cdn.boxicons.com/fonts/animations.min.css' rel='stylesheet'>
 
+
     <style>
         /* .menu {
             position: fixed;
@@ -37,13 +38,13 @@ $level = menuEngine($menuCode2);
         } */
 
         .tengah {
-            position: relative;
-            left: 220px;;
+            /* position: relative;
+            left: 220px;; */
+            margin-left: 220px;
             padding: 20px;
             /* background: #555; */
-            width: 100vw;
+            /* width: 10vw; */
             height: 100%;
-            /* display: flex; */
         }
     </style>
 
@@ -139,4 +140,6 @@ $level = menuEngine($menuCode2);
         <!-- </div> -->
 
     </section>
+
+    <script type="module" src="mainscreen.js"></script>
 </body>

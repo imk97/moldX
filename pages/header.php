@@ -137,8 +137,11 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       border-radius: 15px;
       width: 250px;
-      max-height: 300px;
-      overflow-y: auto;
+      min-height: 200px;
+      /* max-height: 600px; */
+      /* overflow-y: auto; */
+      max-height: none;
+    overflow-y: visible;
       z-index: 9999;
       font-family: var(--lato);
     }
@@ -683,6 +686,7 @@
 </head>
 
 <body>
+
   <nav>
     <i class='bx bx-menu bx-sm'></i>
     <!-- <a href="#" class="nav-link">Categories</a> -->
