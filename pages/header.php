@@ -141,7 +141,7 @@
       /* max-height: 600px; */
       /* overflow-y: auto; */
       max-height: none;
-    overflow-y: visible;
+      overflow-y: visible;
       z-index: 9999;
       font-family: var(--lato);
     }
@@ -704,32 +704,49 @@
       <div class="ball"></div>
     </label>
 
-    <!-- Notification Bell -->
-    <a href="#" class="notification" id="notificationIcon">
-      <i class='bx bxs-bell bx-tada-hover'></i>
-      <span class="num">8</span>
-    </a>
-    <div class="notification-menu" id="notificationMenu">
-      <ul>
-        <li>New message from John</li>
-        <li>Your order has been shipped</li>
-        <li>New comment on your post</li>
-        <li>Update available for your app</li>
-        <li>Reminder: Meeting at 3PM</li>
-      </ul>
-    </div>
+    <?php
+    //No auth
+    if (true) { ?>
+      <a href="#">
+        <!-- <i class='bx bxs-bell bx-tada-hover'></i> -->
+        <!-- <span class="num">8</span> -->
+        Login
+      </a>
+      <a href="#">
+        <!-- <i class='bx bxs-bell bx-tada-hover'></i> -->
+        <!-- <span class="num">8</span> -->
+        Register
+      </a>
+    <?php } else { ?>
+      <!-- Notification Bell -->
+      <a href="#" class="notification" id="notificationIcon">
+        <i class='bx bxs-bell bx-tada-hover'></i>
+        <span class="num">8</span>
+      </a>
+      <div class="notification-menu" id="notificationMenu">
+        <ul>
+          <li>New message from John</li>
+          <li>Your order has been shipped</li>
+          <li>New comment on your post</li>
+          <li>Update available for your app</li>
+          <li>Reminder: Meeting at 3PM</li>
+        </ul>
+      </div>
 
-    <!-- Profile Menu -->
-    <a href="#" class="profile" id="profileIcon">
-      <img src="https://placehold.co/600x400/png" alt="Profile">
-    </a>
-    <div class="profile-menu" id="profileMenu">
-      <ul>
-        <li><a href="#">My Profile</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Log Out</a></li>
-      </ul>
-    </div>
+      <!-- Profile Menu -->
+      <a href="#" class="profile" id="profileIcon">
+        <img src="https://placehold.co/600x400/png" alt="Profile">
+      </a>
+      <div class="profile-menu" id="profileMenu">
+        <ul>
+          <li><a href="#">My Profile</a></li>
+          <li><a href="#">Settings</a></li>
+          <li><a href="#">Log Out</a></li>
+        </ul>
+      </div>
+    <?php } ?>
+
+
   </nav>
 </body>
 

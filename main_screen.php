@@ -120,6 +120,7 @@ $level = menuEngine($menuCode2);
             <div>
                 <?php
                 if ($mainParam[2][0] == 1) {
+                    // echo $mainParam[2][1];
                     include "pages/" . $mainParam[2][1] . ".php";
                 }
                 ?>
@@ -127,9 +128,10 @@ $level = menuEngine($menuCode2);
 
             <div>
                 <?php
-                // if ($mainParam[3][0] == 1) {
-                //     include "pages/" . $mainParam[3][1] . ".php";
-                // }
+                if ($mainParam[3][0] == 1) {
+                    // echo $mainParam[3][1];
+                    include "pages/" . $mainParam[3][1] . ".php";
+                }
                 ?>
             </div>
         </div>
