@@ -1,4 +1,46 @@
 <?php
+// read actual menu data hierarchy - in this case CSV
+$data = array_map('str_getcsv', file('schema/menu_Data.dat'));
+// var_dump($data); exit();
+// echo '<pre>';
+// print_r($data);
+// echo '</pre>';
+function menuTree($rows)
+{
+    $stack = [];
+    $tree = [];
+    foreach ($rows as $row) {
+
+        $level = (int) $row[23];
+        // echo $level;
+        // echo "<br>";
+
+        $node = [
+            'title' => $row[25],
+            'children' => []
+        ];
+
+        if ($level == 1) {
+            $tree[] = $node;
+            // echo array_key_last($tree);
+            $stack[1] = &$tree[array_key_last($tree)];
+            // var_dump($stack[1]);
+        } 
+        else {
+            $parent = &$stack[$level - 1];
+
+            $parent['children'][] = $node;
+            echo $row[25] . ": " . array_key_last($parent['children']);
+            echo "<br>";
+        //     $stack[$level] = &$parent['children'][array_key_last($parent['children'])];
+        }
+    }
+    // echo '<pre>';
+    // print_r($tree);
+    // echo '</pre>';
+}
+
+menuTree($data);
 // // echo '<br>&nbsp;&nbsp;&nbsp;&nbsp;MENU<br>';
 // for ($i = 0; $i < count($level) - 5; $i++) {
 //     echo $level[$i + 5][0];
@@ -25,7 +67,6 @@
     <title>Side Menu</title>
 
     <style>
-
         @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap');
 
         * {
@@ -229,26 +270,34 @@
     <!-- SIDEBAR -->
     <section id="sidebar">
         <!-- <a href="#" class="brand"> -->
-            <!-- <i class='bx bxs-smile  bx-lg'></i>
+        <!-- <i class='bx bxs-smile  bx-lg'></i>
             <span class="text">WizardAdminHub</span> -->
-            <img class="one" src="pages/image/UtmLogo.png" width="80%">
-            <!-- <img class="two" src="pages/image/AssetXLogo.png" width="80%"></th> -->
+        <img class="one" src="pages/image/UtmLogo.png" width="80%">
+        <!-- <img class="two" src="pages/image/AssetXLogo.png" width="80%"></th> -->
         <!-- </a> -->
         <ul class="side-menu top">
-            <?php for ($i = 0; $i < count($level) - 5; $i++) { 
-                if ($level[$i + 5][0] > 0) { 
+            <?php //echo '<pre>'; print_r($level); echo '</pre>'; 
+            for ($i = 0; $i < count($level) - 5; $i++) {
+                if ($level[$i + 5][0] > 0) {
                     $spaLink = $_SESSION["sys_url"] . "main_screen.php?f=" . $level[$i + 5][17];
-                ?>
-                <li>
-                    <?php 
-                    echo "<a href=" . $spaLink . ">";
-                    echo "<i class='bx bxs-dashboard bx-sm'></i>";
-                    echo "<span class='text'>" . $level[$i + 5][18] . "</span>";
-                    echo "</a>";
-                    } } ?>
-                </li>
+            ?>
+                    <li>
+                <?php
+                    if ($level[$i + 5][0] == 2) {
+                        if ($level[$i + 5][0]) {
+                            # code...
+                        }
+                        echo "<a href=" . $spaLink . ">";
+                        echo "<i class='bx bxs-dashboard bx-sm'></i>";
+                        echo "<span class='text'>" . $level[$i + 5][18] . "</span>";
+                        // echo "<i class='bx bx-chevron-right' />";
+                        echo "</a>";
+                    }
+                }
+            } ?>
+                    </li>
         </ul>
-            <!-- <li id="dashboard" onclick="path(1)">
+        <!-- <li id="dashboard" onclick="path(1)">
                 <a href="#dashboard">
                     <i class='bx bxs-dashboard bx-sm'></i>
                     <span class="text">Dashboard</span>
