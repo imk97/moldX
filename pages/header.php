@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Header</title>
+
+  <!-- Header -->
   <style>
     /* CONTENT */
     .header {
@@ -34,7 +36,8 @@
       position: sticky;
       top: 0;
       left: 0;
-      z-index: 1000;
+      /* z-index: 1000; */
+      z-index: 2;
     }
 
     .header nav::before {
@@ -683,6 +686,57 @@
       }
     }
   </style>
+
+  <!-- Modal -->
+  <style>
+    /* The Modal (background) */
+    .modal {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
+      z-index: 3;
+      /* Sit on top */
+      padding-top: 100px;
+      /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%;
+      /* Full width */
+      height: 100%;
+      /* Full height */
+      overflow: auto;
+      /* Enable scroll if needed */
+      background-color: rgb(0, 0, 0);
+      /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.4);
+      /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+      background-color: #fefefe;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+    }
+
+    /* The Close Button */
+    .close {
+      color: #aaaaaa;
+      float: right;
+      /* font-size: 24px; */
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
@@ -707,12 +761,12 @@
     <?php
     //No auth
     if (true) { ?>
-      <a href="#">
+      <a href="javascript:void(0)" id="loginBtn">
         <!-- <i class='bx bxs-bell bx-tada-hover'></i> -->
         <!-- <span class="num">8</span> -->
         Login
       </a>
-      <a href="#">
+      <a href="javascript:void(0)" id="registerBtn">
         <!-- <i class='bx bxs-bell bx-tada-hover'></i> -->
         <!-- <span class="num">8</span> -->
         Register
@@ -748,6 +802,64 @@
 
 
   </nav>
+
+  <!-- The Login Modal -->
+  <div id="login" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Some text in the Modal..</p>
+    </div>
+
+  </div>
+
+  <!-- The Sign up Modal -->
+  <div id="register" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Some text in the Modal..</p>
+    </div>
+
+  </div>
+
+
+  <script>
+    // Get the modal
+    var login = document.getElementById("login");
+    var register = document.getElementById("register");
+
+    // Get the button that opens the modal
+    var lgnbtn = document.getElementById("loginBtn");
+    var regbtn = document.getElementById("registerBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    lgnbtn.onclick = function() {
+      login.style.display = "block";
+    }
+    regbtn.onclick = function() {
+      login.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      login.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == login) {
+        login.style.display = "none";
+      } else if (event.target == register) {
+        register.style.display = "none";
+      }
+    }
+  </script>
 </body>
 
 </html>

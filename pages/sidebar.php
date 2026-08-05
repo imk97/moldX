@@ -126,7 +126,8 @@ menuTree($tree, $data);
             width: 220px;
             height: 100%;
             background: var(--light);
-            z-index: 2000;
+            /* z-index: 2000; */
+            z-index: 2;
             font-family: var(--lato);
             transition: .3s ease;
             overflow-x: hidden;
@@ -554,7 +555,7 @@ menuTree($tree, $data);
 
 <body>
     <!-- SIDEBAR -->
-    <section id="sidebar">
+    <div id="sidebar">
         <!-- <a href="#" class="brand"> -->
         <!-- <i class='bx bxs-smile  bx-lg'></i>
             <span class="text">WizardAdminHub</span> -->
@@ -588,7 +589,7 @@ menuTree($tree, $data);
 
                     echo '<a href="' . htmlspecialchars($menu['link']) . '">';
                     echo '<i class="bx bxs-dashboard bx-sm"></i>';
-                    echo '<span class="text">'. htmlspecialchars($menu['title']) . "</span>";
+                    echo '<span class="text">' . htmlspecialchars($menu['title']) . "</span>";
                     echo '</a>';
 
                     // if (!empty($menu['children'])) {
@@ -694,7 +695,7 @@ menuTree($tree, $data);
                 </a>
             </li>
         </ul>
-    </section>
+    </div>
     <!-- SIDEBAR -->
 </body>
 <script>
