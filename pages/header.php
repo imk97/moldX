@@ -803,63 +803,20 @@
 
   </nav>
 
-  <!-- The Login Modal -->
-  <div id="login" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <p>Some text in the Modal..</p>
-    </div>
-
-  </div>
-
-  <!-- The Sign up Modal -->
-  <div id="register" class="modal">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <p>Some text in the Modal..</p>
-    </div>
-
-  </div>
-
+  <div id="btnContent"></div>
 
   <script>
-    // Get the modal
-    var login = document.getElementById("login");
-    var register = document.getElementById("register");
-
-    // Get the button that opens the modal
-    var lgnbtn = document.getElementById("loginBtn");
-    var regbtn = document.getElementById("registerBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks the button, open the modal 
-    lgnbtn.onclick = function() {
-      login.style.display = "block";
-    }
-    regbtn.onclick = function() {
-      login.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      login.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-      if (event.target == login) {
-        login.style.display = "none";
-      } else if (event.target == register) {
-        register.style.display = "none";
-      }
-    }
+    // function btn() {
+    //   const xhttp = new XMLHttpRequest();
+    //   xhttp.onload = function() {
+    //     document.getElementById("btnContent").innerHTML = this.responseText;
+    //   }
+    //   xhttp.open("GET", "subpages/login/login.php", true);
+    //   xhttp.send();
+    // }
   </script>
+
+
 </body>
 
 </html>

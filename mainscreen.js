@@ -2,6 +2,7 @@ import notificationmenutoggle from "./notificationmenutoggle.js";
 import profilemenutoggle from "./profilemenutoggle.js";
 import switchmode from "./switchmode.js";
 import togglemenu from "./togglemenu.js";
+import { initbtn } from "./login.js";
 
 //   <script>
 window.onload = () => {
@@ -58,6 +59,7 @@ window.onload = () => {
     //         }
     //     }
     // })
+    initbtn()
 
     // Switch dark/light mode
     switchmode();
