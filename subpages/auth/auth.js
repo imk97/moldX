@@ -6,7 +6,7 @@ export function initbtn() {
         // closeModal()
         // getmodal(type)
     }
-    xhttp.open("GET", "subpages/login/login.php", true);
+    xhttp.open("GET", "subpages/auth/auth.php", true);
     xhttp.send();
 
     // Get the button that opens the modal
@@ -21,10 +21,26 @@ export function initbtn() {
 
 }
 
+function reqLogin() {
+    const http = new XMLHttpRequest();
+    http.onload = function () {
+        console.log(this.responseText)
+    }
+    http.open("GET", "subpages/auth/loginprocess.php", true);
+    http.send();
+}
+
 function btn(type) {
-    console.log("testtest")
+    // console.log("testtest")
     getmodal(type)
     closeModal(type)
+    defineInp()
+}
+
+function defineInp() {
+    document.getElementById("submitLogin").addEventListener("click", () => {
+        reqLogin()
+    })
 }
 
 function closeModal(type) {

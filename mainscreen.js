@@ -2,10 +2,11 @@ import notificationmenutoggle from "./notificationmenutoggle.js";
 import profilemenutoggle from "./profilemenutoggle.js";
 import switchmode from "./switchmode.js";
 import togglemenu from "./togglemenu.js";
-import { initbtn } from "./login.js";
+import { initbtn } from "./subpages/auth/auth.js";
 
 //   <script>
 window.onload = () => {
+
     // const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
 
     // allSideMenu.forEach(item => {
