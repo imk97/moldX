@@ -56,15 +56,15 @@
                     <!-- <label for="uname"><b>Username</b></label> -->
                     <div class="input-container">
                         <i class="bx bx-user-id-card icon"></i>
-                       <input type="text" placeholder="Username" name="uname" required>
+                        <input type="text" placeholder="Username" name="uname" required>
                     </div>
-    
+
                     <!-- <label for="psw"><b>Password</b></label> -->
                     <div class="input-container">
                         <i class="bx bx-lock icon"></i>
                         <input type="password" placeholder="Password" name="psw" required>
                     </div>
-    
+
                     <button type="submit" id="submitLogin">Login</button>
                     <!-- <label>
                         <input type="checkbox" checked="checked" name="remember"> Remember me
@@ -86,7 +86,41 @@
         <!-- Modal content -->
         <div class="modal-content" id="registerModal">
             <span class="close">&times;</span>
-            <p>Some text in the Register Modal..</p>
+            <!-- <p>Some text in the Register Modal..</p> -->
+            <div class="container">
+                <div style="padding-bottom: 20px;">
+                    <h2 style="padding-bottom: 10px;">Register</h2>
+                    <p style="padding-top: 10px;">Please fill in this form to create an account.</p>
+                </div>
+                <div>
+                    <!-- <label for="uname"><b>Username</b></label> -->
+                    <div class="input-container">
+                        <i class="bx bx-user-id-card icon"></i>
+                        <input type="text" placeholder="Username" name="uname" required>
+                    </div>
+
+                    <div class="input-container">
+                        <i class="bx bx-user-id-card icon"></i>
+                        <input type="text" placeholder="Email" name="email" required>
+                    </div>
+
+                    <!-- <label for="psw"><b>Password</b></label> -->
+                    <div class="input-container">
+                        <i class="bx bx-lock icon"></i>
+                        <input type="password" placeholder="Password" name="psw" required>
+                    </div>
+
+                    <div class="input-container">
+                        <i class="bx bx-lock icon"></i>
+                        <input type="password" placeholder="Repeat Password" name="repsw" required>
+                    </div>
+
+                    <button type="submit" id="submitLogin">Login</button>
+                    <!-- <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label> -->
+                </div>
+            </div>
         </div>
 
     </div>
