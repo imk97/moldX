@@ -171,11 +171,13 @@ menuTree($tree, $data);
         }
 
         #sidebar .side-menu li {
-            height: 48px;
+            min-height: 48px;
+            height: auto;
             background: transparent;
             margin-left: 6px;
             border-radius: 48px 0 0 48px;
             padding: 4px;
+            overflow: visible;
         }
 
         #sidebar .side-menu li.active {
@@ -261,8 +263,8 @@ menuTree($tree, $data);
         }
 
         /* ===========================
-   SIDEBAR MENU
-=========================== */
+            SIDEBAR MENU
+        =========================== */
 
         #sidebar .side-menu {
             width: 100%;
@@ -313,13 +315,32 @@ menuTree($tree, $data);
         }
 
         /* ===========================
-   SUBMENU
-=========================== */
+        SUBMENU
+        =========================== */
 
         #sidebar .submenu {
             display: none;
-            margin: 5px 0 5px 45px;
-            padding: 0;
+            /* margin: 5px 0 5px 45px;
+            padding: 0; */
+            margin-left: 20px;
+            padding-left: 10px;
+            list-style: none;
+        }
+
+        #sidebar .side-menu .has-submenu.open>.submenu {
+            display: block;
+        }
+
+        /* Rotasi ikon panah apabila dropdown dibuka */
+        #sidebar .side-menu .has-submenu>a::after {
+            content: "▸";
+            margin-left: auto;
+            transition: transform .3s ease;
+            font-size: 12px;
+        }
+
+        #sidebar .side-menu .has-submenu.open>a::after {
+            transform: rotate(90deg);
         }
 
         #sidebar .submenu li {
@@ -355,8 +376,8 @@ menuTree($tree, $data);
         }
 
         /* ===========================
-   Arrow Icon
-=========================== */
+        Arrow Icon
+        =========================== */
 
         #sidebar .has-submenu>a::after {
             content: "▸";
@@ -370,8 +391,8 @@ menuTree($tree, $data);
         }
 
         /* ===========================
-   Sidebar Collapse
-=========================== */
+        Sidebar Collapse
+        =========================== */
 
         #sidebar.hide .text,
         #sidebar.hide .has-submenu>a::after {
@@ -391,8 +412,8 @@ menuTree($tree, $data);
         }
 
         /* ===========================
-   Bottom Menu
-=========================== */
+        Bottom Menu
+        =========================== */
 
         #sidebar .side-menu.bottom {
             position: absolute;
@@ -405,147 +426,6 @@ menuTree($tree, $data);
         /* SIDEBAR */
     </style>
 
-    <!-- <style>
-        /* ===========================
-   SIDEBAR MENU
-=========================== */
-
-        #sidebar .side-menu {
-            width: 100%;
-            margin-top: 48px;
-            padding: 0;
-        }
-
-        /* Top Level Menu */
-        #sidebar .side-menu>li {
-            position: relative;
-            margin-left: 6px;
-            padding: 4px;
-            min-height: 48px;
-            list-style: none;
-            border-radius: 48px 0 0 48px;
-        }
-
-        /* Active Menu */
-        #sidebar .side-menu>li.active {
-            background: var(--grey);
-        }
-
-        #sidebar .side-menu>li.active>a {
-            color: var(--blue);
-        }
-
-        /* Menu Link */
-        #sidebar .side-menu>li>a {
-            display: flex;
-            align-items: center;
-            height: 48px;
-            padding: 0 16px;
-            border-radius: 48px;
-            background: var(--light);
-            color: var(--dark);
-            text-decoration: none;
-            transition: .3s;
-        }
-
-        #sidebar .side-menu>li>a:hover {
-            color: var(--blue);
-        }
-
-        #sidebar .side-menu>li>a .bx {
-            min-width: 40px;
-            text-align: center;
-            font-size: 20px;
-        }
-
-        /* ===========================
-   SUBMENU
-=========================== */
-
-        #sidebar .submenu {
-            display: none;
-            margin: 5px 0 5px 45px;
-            padding: 0;
-        }
-
-        #sidebar .submenu li {
-            list-style: none;
-            margin: 4px 0;
-        }
-
-        #sidebar .submenu li a {
-            display: flex;
-            align-items: center;
-            height: 40px;
-            padding: 0 15px;
-            border-radius: 8px;
-            color: var(--dark);
-            background: transparent;
-            transition: .3s;
-            font-size: 14px;
-        }
-
-        #sidebar .submenu li a:hover {
-            background: var(--light-blue);
-            color: var(--blue);
-        }
-
-        #sidebar .submenu li.active a {
-            color: var(--blue);
-            font-weight: 600;
-        }
-
-        /* Show submenu */
-        #sidebar .has-submenu.open>.submenu {
-            display: block;
-        }
-
-        /* ===========================
-   Arrow Icon
-=========================== */
-
-        #sidebar .has-submenu>a::after {
-            content: "▸";
-            margin-left: auto;
-            transition: .3s;
-            font-size: 12px;
-        }
-
-        #sidebar .has-submenu.open>a::after {
-            transform: rotate(90deg);
-        }
-
-        /* ===========================
-   Sidebar Collapse
-=========================== */
-
-        #sidebar.hide .text,
-        #sidebar.hide .has-submenu>a::after {
-            display: none;
-        }
-
-        #sidebar.hide .submenu {
-            display: none !important;
-        }
-
-        #sidebar.hide .side-menu>li>a {
-            justify-content: center;
-        }
-
-        #sidebar.hide .side-menu>li>a .bx {
-            min-width: auto;
-        }
-
-        /* ===========================
-   Bottom Menu
-=========================== */
-
-        #sidebar .side-menu.bottom {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-    </style> -->
     <style>
         .one {
             margin: 25px;
@@ -563,71 +443,89 @@ menuTree($tree, $data);
         <!-- <img class="two" src="pages/image/AssetXLogo.png" width="80%"></th> -->
         <!-- </a> -->
 
-        <ul class="side-menu top">
-            <?php
-            // foreach ($tree[0]['children'] as $key => $value) {
-            //     // echo $value['title'];
-            //     echo '<li id=" ' . htmlspecialchars($value['title']) . '" >';
-            //     echo '<a href="' . htmlspecialchars($value['link']) . '">';
-            //     echo '<i class="bx bxs-dashboard bx-sm"></i>';
-            //     echo '<span class="text">' . htmlspecialchars($value['title']) . '</span>';
-            //     echo '</a>';
-            //     echo '</li>';
-            // }
+        <!-- <ul class="side-menu top"> -->
+        <?php
+        // foreach ($tree[0]['children'] as $key => $value) {
+        //     // echo $value['title'];
+        //     echo '<li id=" ' . htmlspecialchars($value['title']) . '" >';
+        //     echo '<a href="' . htmlspecialchars($value['link']) . '">';
+        //     echo '<i class="bx bxs-dashboard bx-sm"></i>';
+        //     echo '<span class="text">' . htmlspecialchars($value['title']) . '</span>';
+        //     echo '</a>';
+        //     echo '</li>';
+        // }
 
-            function buildMenu(array $menus, int $level = 1, int $maxLevel = 4)
-            {
-                if ($level > $maxLevel) {
-                    return;
-                }
+        // echo "<pre>";
+        // var_dump($tree[0]['children']);
+        // echo "</pre>";
 
-                echo '<ul class="side-menu level-' . $level . '">';
-
-                foreach ($menus as $menu) {
-
-                    echo '<li id="' . htmlspecialchars($menu['title']) . '">';
-
-                    echo '<a href="' . htmlspecialchars($menu['link']) . '">';
-                    echo '<i class="bx bxs-dashboard bx-sm"></i>';
-                    echo '<span class="text">' . htmlspecialchars($menu['title']) . "</span>";
-                    echo '</a>';
-
-                    // if (!empty($menu['children'])) {
-                    //     buildMenu(
-                    //         $menu['children'],
-                    //         $level + 1,
-                    //         $maxLevel
-                    //     );
-                    // }
-
-                    echo '</li>';
-                }
-
-                echo '</ul>';
+        function buildMenu(array $menus, $level = 1, $maxLevel = 3)
+        {
+            if ($level > $maxLevel) {
+                return;
             }
 
-            buildMenu($tree[0]['children']);
+            $ulClass = ($level === 1) ? 'side-menu' : 'submenu';
+            echo '<ul class="' . $ulClass . '">';
 
-            // for ($i = 0; $i < count($level) - 5; $i++) {
-            //     echo $level[$i + 5][0];
-            //     if ($level[$i + 5][0] > 0) {
-            //         // for ($ii = 1; $ii <= $level[$i + 5][0]; $ii++) {
-            //         //     echo "&nbsp;&nbsp;";
-            //         // }
-            //         $spaLink = $_SESSION["sys_url"] . "main_screen.php?f=" . $level[$i + 5][17];
-            //         echo "<a href=" . $spaLink . ">" . $level[$i + 5][18] . "</a>";
-            //         echo $level[$i+5][18];
-            //         //echo "->";
-            //         // echo $spaLink;
+            // echo "<-------->";
+            // echo "<br>";
+            foreach ($menus as $menu) {
 
-            //         echo "<br>";
-            //     }
-            // }
-            // 
-            ?>
-            <!-- </ul>; -->
+                // var_dump($menu['title']);
+                // echo "<br>";
 
-            <!-- <li id="dashboard" onclick="path(1)">
+                $hasChildren = isset($menu['children']) && is_array($menu['children']) && count($menu['children']) > 0;
+
+                // Tambah class 'has-submenu' jika ada anak
+                $liClass = $hasChildren ? 'has-submenu' : '';
+
+                echo '<li id="' . htmlspecialchars($menu['title']) . '" class="' . $liClass . '">';
+
+                // Jika ada anak, ganti link biasa dengan toggle JS
+                if ($hasChildren) {
+                    echo '<a href="javascript:void(0);" onclick="toggleMenu(this)">';
+                } else {
+                    echo '<a href="' . htmlspecialchars($menu['link']) . '">';
+                }
+
+                // echo '<i class="bx bxs-dashboard"></i>'; // Ikon asas Boxicons
+                echo '<span class="text">' . htmlspecialchars($menu['title']) . '</span>';
+                echo '</a>';
+
+                // Panggil semula fungsi jika ada anak
+                if ($hasChildren) {
+                    buildMenu($menu['children'], $level + 1, $maxLevel);
+                }
+
+                echo '</li>';
+            }
+
+            echo '</ul>';
+        }
+
+        buildMenu($tree[0]['children'], 1, 3);
+
+        // for ($i = 0; $i < count($level) - 5; $i++) {
+        //     echo $level[$i + 5][0];
+        //     if ($level[$i + 5][0] > 0) {
+        //         // for ($ii = 1; $ii <= $level[$i + 5][0]; $ii++) {
+        //         //     echo "&nbsp;&nbsp;";
+        //         // }
+        //         $spaLink = $_SESSION["sys_url"] . "main_screen.php?f=" . $level[$i + 5][17];
+        //         echo "<a href=" . $spaLink . ">" . $level[$i + 5][18] . "</a>";
+        //         echo $level[$i+5][18];
+        //         //echo "->";
+        //         // echo $spaLink;
+
+        //         echo "<br>";
+        //     }
+        // }
+        // 
+        ?>
+        <!-- </ul>; -->
+
+        <!-- <li id="dashboard" onclick="path(1)">
                 <a href="#dashboard">
                     <i class='bx bxs-dashboard bx-sm'></i>
                     <span class="text">Dashboard</span>
@@ -665,7 +563,7 @@ menuTree($tree, $data);
                     <span class="text">IoT Machines</span>
                 </a>
             </li> -->
-            <!-- <li id="calibrate">
+        <!-- <li id="calibrate">
                 <a href="#calibrate" onclick="path(4)">
                     <i class='bx bxs-gear bx-sm'></i>
                     <i class='bx bx-gear bx-sm'></i>
@@ -696,8 +594,8 @@ menuTree($tree, $data);
                     <span class="text">Team</span>
                 </a>
             </li> -->
-        </ul>
-        <ul class="side-menu bottom">
+        <!-- </ul> -->
+        <!-- <ul class="side-menu bottom">
             <li>
                 <a href="#">
                     <i class='bx bxs-cog bx-sm bx-spin-hover'></i>
@@ -710,7 +608,7 @@ menuTree($tree, $data);
                     <span class="text">Logout</span>
                 </a>
             </li>
-        </ul>
+        </ul> -->
     </div>
     <!-- SIDEBAR -->
 </body>
