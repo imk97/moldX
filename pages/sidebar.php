@@ -322,8 +322,8 @@ menuTree($tree, $data);
             display: none;
             /* margin: 5px 0 5px 45px;
             padding: 0; */
-            margin-left: 20px;
-            padding-left: 10px;
+            margin-left: 10px;
+            /* padding-left: 10px; */
             list-style: none;
         }
 
