@@ -443,18 +443,7 @@ menuTree($tree, $data);
         <!-- <img class="two" src="pages/image/AssetXLogo.png" width="80%"></th> -->
         <!-- </a> -->
 
-        <!-- <ul class="side-menu top"> -->
         <?php
-        // foreach ($tree[0]['children'] as $key => $value) {
-        //     // echo $value['title'];
-        //     echo '<li id=" ' . htmlspecialchars($value['title']) . '" >';
-        //     echo '<a href="' . htmlspecialchars($value['link']) . '">';
-        //     echo '<i class="bx bxs-dashboard bx-sm"></i>';
-        //     echo '<span class="text">' . htmlspecialchars($value['title']) . '</span>';
-        //     echo '</a>';
-        //     echo '</li>';
-        // }
-
         // echo "<pre>";
         // var_dump($tree[0]['children']);
         // echo "</pre>";
@@ -465,7 +454,7 @@ menuTree($tree, $data);
                 return;
             }
 
-            $ulClass = ($level === 1) ? 'side-menu' : 'submenu';
+            $ulClass = ($level === 1) ? 'side-menu top' : 'submenu';
             echo '<ul class="' . $ulClass . '">';
 
             // echo "<-------->";
@@ -486,7 +475,7 @@ menuTree($tree, $data);
                 if ($hasChildren) {
                     echo '<a href="javascript:void(0);" onclick="toggleMenu(this)">';
                 } else {
-                    echo '<a href="' . htmlspecialchars($menu['link']) . '">';
+                    echo '<a class="active" href="' . htmlspecialchars($menu['link']) . '">';
                 }
 
                 // echo '<i class="bx bxs-dashboard"></i>'; // Ikon asas Boxicons
@@ -524,78 +513,7 @@ menuTree($tree, $data);
         // 
         ?>
         <!-- </ul>; -->
-
-        <!-- <li id="dashboard" onclick="path(1)">
-                <a href="#dashboard">
-                    <i class='bx bxs-dashboard bx-sm'></i>
-                    <span class="text">Dashboard</span>
-                </a>
-            </li>
-            <li id="users">
-                <a href="#users" onclick="path(2)">
-                    <i class="bx bxs-community bx-tada"></i>
-                    <span class="text">Users</span>
-                </a>
-            </li>
-            <li class="has-submenu">
-                <a href="#users" onclick="toggleMenu(this)">
-                    <i class="bx bxs-community"></i>
-                    <span class="text">test</span>
-                </a>
-                <ul class="submenu">
-                    <li>
-                        <a href="#users" onclick="path(2)">
-                            <i class="bx bxs-community bx-tada"></i>
-                            <span class="text">tes</span>
-                        </a>
-                    </li>
-                    <li id="users">
-                        <a href="#users" onclick="path(2)">
-                            <i class="bx bxs-community bx-tada"></i>
-                            <span class="text">teststs</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li id="iotmachines">
-                <a href="#iotmachines" onclick="path(3)">
-                    <i class="bx bxs-robot bx-flip-horizontal bx-wiggle bx-rotate-90"></i>
-                    <span class="text">IoT Machines</span>
-                </a>
-            </li> -->
-        <!-- <li id="calibrate">
-                <a href="#calibrate" onclick="path(4)">
-                    <i class='bx bxs-gear bx-sm'></i>
-                    <i class='bx bx-gear bx-sm'></i>
-                    <span class="text">Calibrate</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bxs-shopping-bag-alt bx-sm'></i>
-                    <span class="text">My Store</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bxs-doughnut-chart bx-sm'></i>
-                    <span class="text">Analytics</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bxs-message-dots bx-sm'></i>
-                    <span class="text">Message</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bxs-group bx-sm'></i>
-                    <span class="text">Team</span>
-                </a>
-            </li> -->
-        <!-- </ul> -->
-        <!-- <ul class="side-menu bottom">
+        <ul class="side-menu bottom">
             <li>
                 <a href="#">
                     <i class='bx bxs-cog bx-sm bx-spin-hover'></i>
@@ -608,7 +526,7 @@ menuTree($tree, $data);
                     <span class="text">Logout</span>
                 </a>
             </li>
-        </ul> -->
+        </ul>
     </div>
     <!-- SIDEBAR -->
 </body>

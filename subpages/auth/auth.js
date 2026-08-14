@@ -15,6 +15,8 @@ export function initbtn() {
     var lgnbtn = document.getElementById("loginBtn");
     var regbtn = document.getElementById("registerBtn");
 
+    if (!lgnbtn || !regbtn) return
+
     lgnbtn.addEventListener("click", () => btn("lgnbtn"))
     regbtn.addEventListener("click", () => btn("regbtn"))
 
