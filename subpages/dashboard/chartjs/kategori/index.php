@@ -9,9 +9,9 @@
 </head>
 
 <body>
-    <canvas id="myChart"></canvas>
+    <canvas id="kategori"></canvas>
     <script>
-        const ctx = document.getElementById('myChart');
+        const ctx = document.getElementById('kategori');
 
         const myChart = new Chart(ctx, {
             type: 'bar',
