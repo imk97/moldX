@@ -143,5 +143,6 @@ $level = menuEngine($menuCode2);
 
     </section>
 
-    <script type="module" src="mainscreen.js"></script>
+    <!-- <script type="module" src="mainscreen.js?v=Date.now()"></script> -->
+    <script type="module" src="mainscreen.js?v=<?php echo time(); ?>"></script>
 </body>
