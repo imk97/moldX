@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html>
-
 <?php
 session_start();
 
@@ -11,132 +8,140 @@ $menuCode2 = $_GET['f'];
 include('function/menu_function_menuEngine.php');
 $level = menuEngine($menuCode2);
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AssetX</title>
+    <!-- Boxicons -->
+    <!-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/dist/boxicons.js' rel='stylesheet'> -->
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    <link href='https://cdn.boxicons.com/fonts/animations.min.css' rel='stylesheet'>
 
-    .tengah {
-      background-color: GhostWhite;
-    }
 
-    .menu {
-      background-color: #ece3ec;
-      float: left;
-      width: 20%;
-      white-space: nowrap;
-      overflow-x: auto;
-    }
+    <style>
+        /* .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 220px;
+            height: 100%;
+            background: var(--light);
+            z-index: 2000;
+            font-family: var(--lato);
+            transition: .3s ease;
+            overflow-x: hidden;
+            scrollbar-width: none;
+        } */
 
-    .main {
-      background-color: White Blue;
-      float: left;
-      width: 80%;
-      /*padding: 0 20px;*/
-      overflow: hidden;
-    }
+        .tengah {
+            /* position: relative;
+            left: 220px;; */
+            margin-left: 220px;
+            padding: 20px;
+            /* background: #555; */
+            /* width: 10vw; */
+            height: 100%;
+        }
+    </style>
 
-    .right {
-      background-color: lightblue;
-      float: left;
-      width: 0%;
-      /*padding: 10px 15px;*/
-      /*margin-top: 7px;*/
-    }
+    <!-- Tooltip only -->
+    <style>
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            /* border-bottom: 1px dotted black; */
+        }
 
-    @media only screen and (max-width:800px) {
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            /* bottom: 125%; */
+            top: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
 
-      /* For tablets: */
-      .main {
-        width: 80%;
-        padding: 0;
-      }
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            /* top: 100%; */
+            bottom: 100%;
+            /* At the top of the tooltip */
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
 
-      .right {
-        width: 100%;
-      }
-    }
-
-    @media only screen and (max-width:500px) {
-
-      /* For mobile phones: */
-      .menu,
-      .main,
-      .right {
-        width: 100%;
-      }
-    }
-  </style>
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
 </head>
 
-<body style="font-family:Verdana;">
-
-  <div style="background-color:#f1f1f1;padding:1px;">
-    <?php
-    if ($mainParam[0][0] == 1) {
-      include "pages/" . $mainParam[0][1] . ".php";
-    }
-    ?>
-  </div>
-
-  <div class="tengah">
-
-    <div style="overflow:auto">
-      <div class="menu">
+<body>
+    <!-- header -->
+    <section class="header">
         <?php
-        if ($mainParam[1][0] == 1) {
-          include "pages/" . $mainParam[1][1] . ".php";
+        if ($mainParam[0][0] == 1) {
+            include "pages/" . $mainParam[0][1] . ".php";
         }
         ?>
-      </div>
+    </section>
 
-      <div class="main">
+    <section class="tengah">
 
-        <div style="text-align:left;font-size:12px; padding:10px;">
-          <?php
-          if ($mainParam[2][0] == 1) {
-            include "pages/" . $mainParam[2][1] . ".php";
-          }
-          ?>
+        <!-- <div style="display:flex; flex-direction:row; overflow:auto; min-height:100vh;"> -->
+        <div class="menu">
+            <?php
+            if ($mainParam[1][0] == 1) {
+                include "pages/" . $mainParam[1][1] . ".php";
+            }
+            ?>
         </div>
 
-        <div>
-          <?php
-          if ($mainParam[3][0] == 1) {
-            include "pages/" . $mainParam[3][1] . ".php";
-          }
-          ?>
+        <div class="main">
+
+            <div>
+                <?php
+                if ($mainParam[2][0] == 1) {
+                    // echo $mainParam[2][1];
+                    include "pages/" . $mainParam[2][1] . ".php";
+                }
+                ?>
+            </div>
+
+            <div>
+                <?php
+                if ($mainParam[3][0] == 1) {
+                    // echo $mainParam[3][1];
+                    include "pages/" . $mainParam[3][1] . ".php";
+                }
+                ?>
+            </div>
         </div>
-      </div>
 
-      <div class="right">
-        <!-- standby ruang ini -->
-      </div>
-    </div>
+        <div class="right">
+            <!-- standby ruang ini -->
+        </div>
+        <!-- </div> -->
 
-  </div>
+    </section>
 
-  <div style="background-color:#f1f1f1;text-align:center;font-size:12px; padding:1px;">
-    <?php
-    if ($mainParam[4][0] == 1) {
-      include "pages/" . $mainParam[4][1] . ".php";
-    }
-    ?>
-
-  </div>
-
-  <div style="background-color:#f1f100;text-align:left;font-size:12px; padding:1px;">
-    <?php
-    if ($mainParam[5][0] == 1) {
-      include "pages/" . $mainParam[5][1] . ".php";
-    }
-    ?>
-
-  </div>
-
+    <script type="module" src="mainscreen.js"></script>
 </body>
-
-</html>
