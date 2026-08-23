@@ -5,10 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal</title>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@29.2.3/dist/css/intlTelInput.css">
-
-
     <style>
         fieldset {
             display: flex;
@@ -27,17 +23,28 @@
             align-items: center;
             justify-content: center;
         }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .inline-container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            align-items: center;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@29.2.3/dist/js/intlTelInput.min.js"></script>
-    <script>
-        const input = document.querySelector("#phone");
-        window.intlTelInput(input, {
-            loadUtils: () => import("https://cdn.jsdelivr.net/npm/intl-tel-input@29.2.3/dist/js/utils.js"),
-        });
-    </script>
 
     <form action="/action_page.php">
         <!-- <fieldset> -->
@@ -47,23 +54,35 @@
         </div>
 
         <div class="container">
-            <label for="fullname">Full name</label>
-            <input type="text" name="firstname" value="Mickey">
 
-            <label for="uname">User name</label>
-            <input type="text" name="lastname" value="Mouse">
+            <div class="inline-container">
+                <label for="fullname">Full name</label>
+                <input type="text" id="fullname" name="firstname" value="Mickey">
+            </div>
 
-            <label for="uname">Email</label>
-            <input type="email" name="email" value="Mouse@gmail.com">
+            <div class="inline-container">
+                <label for="uname">User name</label>
+                <input type="text" id="uname" name="lastname" value="Mouse">
+            </div>
 
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" required>
+            <div class="inline-container">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" value="Mouse@gmail.com">
+            </div>
+
+            <div class="inline-container">
+                <!-- Phone input -->
+                <?php include_once "phoneinput.php"; ?>
+            </div>
+
 
             <input type="submit" value="Submit">
         </div>
 
         <!-- </fieldset> -->
     </form>
+
+
 </body>
 
 </html>
