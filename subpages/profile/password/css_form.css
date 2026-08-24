@@ -1,0 +1,55 @@
+input[type=text],
+input[type=email],
+input[type=tel],
+input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.form-container {
+    margin: 20px 0;
+    /* width: 50%; */
+}
+
+.button-group {
+    width: 40%;
+    margin-left: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.form-group {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.form-group label {
+    width: 150px;
+    flex-shrink: 0;
+}
+
+.form-group input {
+    flex: 1;
+    padding: 8px 10px;
+    box-sizing: border-box;
+}
+
+
+/* .form-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    align-items: center;
+    margin-bottom: 10px;
+} */
