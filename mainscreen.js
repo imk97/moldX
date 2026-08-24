@@ -2,18 +2,22 @@ import notificationmenutoggle from "./notificationmenutoggle.js";
 import profilemenutoggle from "./profilemenutoggle.js";
 import switchmode from "./switchmode.js";
 import togglemenu from "./togglemenu.js";
+import { initbtn } from "./subpages/auth/auth.js";
 
 //   <script>
 window.onload = () => {
-    // const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
 
+    // const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top > li > a');
+    // console.log(allSideMenu)
+    
     // allSideMenu.forEach(item => {
     //     const li = item.parentElement;
-
+        
     //     item.addEventListener('click', function () {
     //         allSideMenu.forEach(i => {
     //             i.parentElement.classList.remove('active');
     //         })
+    //         console.log(li.classList)
     //         li.classList.add('active');
     //     })
     // });
@@ -59,8 +63,11 @@ window.onload = () => {
     //     }
     // })
 
+    initbtn()
+    
     // Switch dark/light mode
     switchmode();
+    
 
     //toggle menu
     togglemenu();

@@ -1,4 +1,5 @@
 export default function switchmode() {
+    // console.log("switch mode")
     // Dark Mode Switch
     const switchMode = document.getElementById('switch-mode');
 

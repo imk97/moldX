@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Header</title>
+
+  <!-- Header -->
   <style>
     /* CONTENT */
     .header {
@@ -34,7 +36,8 @@
       position: sticky;
       top: 0;
       left: 0;
-      z-index: 1000;
+      /* z-index: 1000; */
+      z-index: 2;
     }
 
     .header nav::before {
@@ -683,71 +686,95 @@
       }
     }
   </style>
+
+  <link rel="stylesheet" href="subpages/auth/auth.css">
 </head>
 
 <body>
 
   <nav>
-    <i class='bx bx-menu bx-sm'></i>
-    <!-- <a href="#" class="nav-link">Categories</a> -->
-    <img class="two" src="pages/image/AssetXLogo.png" width="10%" class="nav-link"></th>
-    <form action="#">
-      <div class="form-input">
-        <input type="search" placeholder="Search...">
-        <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
-      </div>
-    </form>
-    <input type="checkbox" class="checkbox" id="switch-mode" hidden />
-    <label class="swith-lm" for="switch-mode">
-      <i class="bx bxs-moon"></i>
-      <i class="bx bx-sun"></i>
-      <div class="ball"></div>
-    </label>
+    <div id="kiri" style="display: flex; flex-direction: row; align-items: center; gap: 20px;">
+      <i class='bx bx-menu bx-sm'></i>
+      <!-- <a href="#" class="nav-link">Categories</a> -->
+      <img class="two" src="pages/image/AssetXLogo.png" width="10%" class="nav-link"></th>
+      <!-- <form action="#">
+        <div class="form-input">
+          <input type="search" placeholder="Search...">
+          <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+        </div>
+      </form> -->
+    </div>
 
-    <?php
-    //No auth
-    if (true) { ?>
-      <a href="#">
-        <!-- <i class='bx bxs-bell bx-tada-hover'></i> -->
-        <!-- <span class="num">8</span> -->
-        Login
-      </a>
-      <a href="#">
-        <!-- <i class='bx bxs-bell bx-tada-hover'></i> -->
-        <!-- <span class="num">8</span> -->
-        Register
-      </a>
-    <?php } else { ?>
-      <!-- Notification Bell -->
-      <a href="#" class="notification" id="notificationIcon">
-        <i class='bx bxs-bell bx-tada-hover'></i>
-        <span class="num">8</span>
-      </a>
-      <div class="notification-menu" id="notificationMenu">
-        <ul>
-          <li>New message from John</li>
-          <li>Your order has been shipped</li>
-          <li>New comment on your post</li>
-          <li>Update available for your app</li>
-          <li>Reminder: Meeting at 3PM</li>
-        </ul>
-      </div>
+    <div id="kanan" style="display: flex; flex-direction: row; align-items: center;gap: 30px;">
+      <input type="checkbox" class="checkbox" id="switch-mode" hidden />
+      <label class="swith-lm" for="switch-mode">
+        <i class="bx bxs-moon"></i>
+        <i class="bx bx-sun"></i>
+        <div class="ball"></div>
+      </label>
 
-      <!-- Profile Menu -->
-      <a href="#" class="profile" id="profileIcon">
-        <img src="https://placehold.co/600x400/png" alt="Profile">
-      </a>
-      <div class="profile-menu" id="profileMenu">
-        <ul>
-          <li><a href="#">My Profile</a></li>
-          <li><a href="#">Settings</a></li>
-          <li><a href="#">Log Out</a></li>
-        </ul>
-      </div>
-    <?php } ?>
+      <?php
+      //No auth
+      if (false) { ?>
+        <a href="javascript:void(0)" id="loginBtn">
+          <!-- <i class='bx bxs-bell bx-tada-hover'></i> -->
+          <!-- <span class="num">8</span> -->
+          Login
+        </a>
+        <a href="javascript:void(0)" id="registerBtn">
+          <!-- <i class='bx bxs-bell bx-tada-hover'></i> -->
+          <!-- <span class="num">8</span> -->
+          Register
+        </a>
+      <?php } else { ?>
+        <!-- Notification Bell -->
+        <a href="#" class="notification" id="notificationIcon">
+          <i class='bx bxs-bell bx-tada-hover'></i>
+          <span class="num">8</span>
+        </a>
+        <div class="notification-menu" id="notificationMenu">
+          <ul>
+            <li>New message from John</li>
+            <li>Your order has been shipped</li>
+            <li>New comment on your post</li>
+            <li>Update available for your app</li>
+            <li>Reminder: Meeting at 3PM</li>
+          </ul>
+        </div>
+
+        <!-- Profile Menu -->
+        <a href="#" class="profile" id="profileIcon">
+          <img src="https://placehold.co/600x400/png" alt="Profile">
+        </a>
+        <div class="profile-menu" id="profileMenu">
+          <ul>
+            <li><a href="#">My Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Log Out</a></li>
+          </ul>
+        </div>
+      <?php } ?>
+
+    </div>
+
 
 
   </nav>
+
+  <div id="btnContent"></div>
+
+  <script>
+    // function btn() {
+    //   const xhttp = new XMLHttpRequest();
+    //   xhttp.onload = function() {
+    //     document.getElementById("btnContent").innerHTML = this.responseText;
+    //   }
+    //   xhttp.open("GET", "subpages/login/login.php", true);
+    //   xhttp.send();
+    // }
+  </script>
+
+
 </body>
 
 </html>
