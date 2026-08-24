@@ -12,7 +12,7 @@
             justify-content: center;
         }
 
-        img {
+        img#pp {
             border-radius: 50%;
         }
 
@@ -25,13 +25,13 @@
         }
 
         .container {
-            width: 80%;
+            /* width: 80%;
             margin: auto;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 0 20px;
+            padding: 0 20px; */
         }
 
         .inline-container {
@@ -41,33 +41,42 @@
             align-items: center;
             margin-bottom: 10px;
         }
+
+        input[type=text], input[type=email], input[type=tel],
+        input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
     </style>
 </head>
 
 <body>
-
-    <form action="/action_page.php">
+    <form>
         <!-- <fieldset> -->
         <!-- <legend>Personal information:</legend> -->
         <div class="img-container">
-            <img src="9439682.jpg" alt="John" style="width:50%">
+            <img id="pp" src="subpages/profile/personal/9439682.jpg" alt="John" style="width:30%">
         </div>
 
         <div class="container">
 
             <div class="inline-container">
                 <label for="fullname">Full name</label>
-                <input type="text" id="fullname" name="firstname" value="Mickey">
+                <input type="text" id="fullname" name="firstname" placeholder="Mickey">
             </div>
 
             <div class="inline-container">
                 <label for="uname">User name</label>
-                <input type="text" id="uname" name="lastname" value="Mouse">
+                <input type="text" id="uname" name="lastname" placeholder="Mouse">
             </div>
 
             <div class="inline-container">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" value="Mouse@gmail.com">
+                <input type="email" id="email" name="email" placeholder="Mouse@gmail.com">
             </div>
 
             <div class="inline-container">
