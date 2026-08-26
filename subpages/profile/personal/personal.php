@@ -1,97 +1,115 @@
+<?php
+//$file_path = $level[4][1];  // dat file
+$_SESSION['file_dat'] = $level[4][1];
+
+$file_action = "subpages/profile/personal/formv1_submit.php";
+
+if (!file_exists($_SESSION['file_dat'])) {
+    die("Fail data " . $_SESSION['file_dat'] . " tidak ditemui.");
+}
+
+// Baca fail CSV ke dalam array
+$lines = array_map('str_getcsv', file($_SESSION['file_dat']));
+
+$_SESSION['fwd_url'] = $lines[2][0];
+$_SESSION['cancel_url'] = $lines[2][1];
+$_SESSION['file_dat'] = $level[4][1];
+
+// Baris 1: Tajuk Form
+$form_title = isset($lines[0][0]) ? trim($lines[0][0]) : 'FORM';
+
+// Baris 2: Fail CSS & Fail Asal
+$css_file = isset($lines[1][0]) ? trim($lines[1][0]) : 'subpages/profile/personal/css_form.css';
+$original_file = isset($lines[1][1]) ? trim($lines[1][1]) : 'formv1.php';
+
+// Index 6: Tajuk Form
+$form_title = isset($lines[6][0]) ? trim($lines[6][0]) : 'FORM';
+
+// Baris 8: Jumlah soalan & Nama Table
+$field_count = isset($lines[7][0]) ? (int)trim($lines[7][0]) : 0;
+$table_name = isset($lines[7][1]) ? trim($lines[7][1]) : '';
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal</title>
-    <style>
-        fieldset {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        img#pp {
-            border-radius: 50%;
-        }
-
-        .img-container {
-            width: 80%;
-            margin: 20px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .container {
-            /* width: 80%;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 0 20px; */
-        }
-
-        .inline-container {
-            width: 100%;
-            display: grid;
-            grid-template-columns: 150px 1fr;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        input[type=text], input[type=email], input[type=tel],
-        input[type=password] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-    </style>
+    <title><?php echo htmlspecialchars($form_title); ?></title>
+    <link rel="stylesheet" href="<?php echo htmlspecialchars($css_file); ?>?v=<?php echo filemtime($css_file); ?>">
 </head>
 
 <body>
-    <form>
-        <!-- <fieldset> -->
-        <!-- <legend>Personal information:</legend> -->
-        <div class="img-container">
-            <img id="pp" src="subpages/profile/personal/9439682.jpg" alt="John" style="width:30%">
-        </div>
 
-        <div class="container">
+    <!-- <div style="padding-top: 20px;">
+        <h2><?php echo htmlspecialchars($form_title); ?></h2>
+    </div> -->
+    <div class="form-container">
 
-            <div class="inline-container">
-                <label for="fullname">Full name</label>
-                <input type="text" id="fullname" name="firstname" placeholder="Mickey">
+        <!--form action="subpages/formv1/formv1_submit.php?dat="<?= $_SESSION['file_dat'] ?> method="POST"-->
+        <!--form action="subpages/formv1/formv1_submit.php?dat=subpages/formv1/formNo1.dat" method="POST"-->
+        <form action="subpages/formv1/formv1_submit.php" method="POST">
+
+            <!-- Hantar maklumat nama table secara tersembunyi -->
+            <input type="hidden" name="table_name" value="<?php echo htmlspecialchars($table_name); ?>">
+
+            <div class="row">
+                <?php
+                // Loop dinamik mengikut jumlah field (index 7, Column 1)
+                for ($i = 0; $i < $field_count; $i++) {
+                    // Data soalan bermula dari baris ke-9 (index 8)
+                    $line_index = $i + 8;   // soalan mula index 8
+
+                    if (isset($lines[$line_index])) {
+                        $label = trim($lines[$line_index][0]);
+                        $column_name = trim($lines[$line_index][1]);
+
+                        // Menentukan jenis input secara asas mengikut nama medan
+                        $input_type = 'text';
+                        if (stristr($column_name, 'password')) {
+                            $input_type = 'password';
+                        } elseif (stristr($column_name, 'email')) {
+                            $input_type = 'email';
+                        }
+                ?>
+
+                        <!-- echo '<div class="form-group">';
+                    echo '<label for="' . htmlspecialchars($column_name) . '">' . htmlspecialchars($label) . '</label>';
+                    echo '<input type="' . $input_type . '" id="' . htmlspecialchars($column_name) . '" name="fields[' . htmlspecialchars($column_name) . ']" required>';
+                    echo '</div>'; -->
+
+                        <div class="form-group">
+                            <label for="<?= htmlspecialchars($column_name); ?>"><?= htmlspecialchars($label); ?></label>
+                            <input type="<?= $input_type; ?>" id="<?= htmlspecialchars($column_name); ?>" name="<?= 'fields[' . htmlspecialchars($column_name) . ']' ?>">
+                        </div>
+
+                <?php }
+                }
+                ?>
             </div>
-
-            <div class="inline-container">
-                <label for="uname">User name</label>
-                <input type="text" id="uname" name="lastname" placeholder="Mouse">
+            <div class="button-group">
+                <a href=<?= $_SESSION['sys_url'] . $_SESSION['cancel_url'] ?> class="btn btn-cancel">Cancel</a>
+                <button type="submit" class="btn btn-submit">Submit</button>
             </div>
-
-            <div class="inline-container">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Mouse@gmail.com">
-            </div>
-
-            <div class="inline-container">
-                <!-- Phone input -->
-                <?php include_once "phoneinput.php"; ?>
-            </div>
-
-
-            <input type="submit" value="Submit">
-        </div>
-
-        <!-- </fieldset> -->
-    </form>
-
-
+        </form>
+    </div>
+    <br>
 </body>
+
+<?php
+
+if ($lines[0][1] == 1) {
+    echo '<br>[Array of $lines]<br>';
+    for ($i = 0; $i < count($lines); $i++) {
+        echo $i . '-> ';
+        for ($ii = 0; $ii <= 4; $ii++) {
+            if (isset($lines[$i][$ii])) {
+                echo $lines[$i][$ii] . ", ";
+            }
+            //    echo $lines[$i][$ii] . ", ";
+        }
+        echo '<br>';
+    }
+}
+?>
 
 </html>
