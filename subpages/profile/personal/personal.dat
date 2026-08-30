@@ -6,6 +6,8 @@ A
 A
 UPDATE PROFILE
 9,user
+profilepicture,profilepicture
 Full Name,fullname
 Username,username
 Email,email
+phone,phone,phoneinput.php

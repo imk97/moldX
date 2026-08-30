@@ -62,6 +62,9 @@ $table_name = isset($lines[7][1]) ? trim($lines[7][1]) : '';
                     if (isset($lines[$line_index])) {
                         $label = trim($lines[$line_index][0]);
                         $column_name = trim($lines[$line_index][1]);
+                        $filename = trim($lines[$line_index][2]);
+
+                        // echo $filename;
 
                         // Menentukan jenis input secara asas mengikut nama medan
                         $input_type = 'text';
@@ -71,16 +74,29 @@ $table_name = isset($lines[7][1]) ? trim($lines[7][1]) : '';
                             $input_type = 'email';
                         }
                 ?>
+                        <?php if ($column_name == 'profilepicture') { ?>
+                            <div class="img-container">
+                                <img id="pp" src="subpages/profile/personal/9439682.jpg" alt="John" style="width:30%">
+                            </div>
+                        <?php } ?>
 
-                        <!-- echo '<div class="form-group">';
-                    echo '<label for="' . htmlspecialchars($column_name) . '">' . htmlspecialchars($label) . '</label>';
-                    echo '<input type="' . $input_type . '" id="' . htmlspecialchars($column_name) . '" name="fields[' . htmlspecialchars($column_name) . ']" required>';
-                    echo '</div>'; -->
+                        <?php if (isset($filename) && $filename != "") {
+                            echo '<div class="form-group">';
+                            include_once($filename);
+                            echo '</div>';
+                        } else { ?>
+                            <!-- echo '<div class="form-group">';
+                                echo '<label for="' . htmlspecialchars($column_name) . '">' . htmlspecialchars($label) . '</label>';
+                                echo '<input type="' . $input_type . '" id="' . htmlspecialchars($column_name) . '" name="fields[' . htmlspecialchars($column_name) . ']" required>';
+                                echo '</div>'; -->
+                                <?php if ($column_name == 'profilepicture') { continue; }?>
 
-                        <div class="form-group">
-                            <label for="<?= htmlspecialchars($column_name); ?>"><?= htmlspecialchars($label); ?></label>
-                            <input type="<?= $input_type; ?>" id="<?= htmlspecialchars($column_name); ?>" name="<?= 'fields[' . htmlspecialchars($column_name) . ']' ?>">
-                        </div>
+                            <div class="form-group">
+                                <label for="<?= htmlspecialchars($column_name); ?>"><?= htmlspecialchars($label); ?></label>
+                                <input type="<?= $input_type; ?>" id="<?= htmlspecialchars($column_name); ?>" name="<?= 'fields[' . htmlspecialchars($column_name) . ']' ?>">
+                            </div>
+
+                        <?php } ?>
 
                 <?php }
                 }
