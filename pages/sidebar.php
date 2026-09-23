@@ -5,7 +5,7 @@ for ($i = 0; $i < count($level) - 5; $i++) {
         for ($ii = 1; $ii <= $level[$i + 5][0]; $ii++) {
             echo "&nbsp;&nbsp;";
         }
-        $spaLink = $_SESSION["sys_url"]."main_screen.php?f=" . $level[$i + 5][17];
+        $spaLink = $_SESSION['fileDir']["sys_url"]."/main_screen.php?f=" . $level[$i + 5][17];
         echo "<a href=" . $spaLink . ">" . $level[$i + 5][18] . "</a>";
         //echo $level[$i+5][18];
         //echo "->";

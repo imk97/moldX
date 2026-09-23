@@ -3,12 +3,12 @@ This is compiler Section
 
 <?php
 echo "[SESSION AREA]<br>";
-echo "SESSION[sys_root]: ".$_SESSION["sys_root"]."<br>";
-echo "SESSION[sys_url]: ".$_SESSION["sys_url"]."<br>";
-echo "SESSION[sys_mainpage]: ".$_SESSION["sys_mainpage"]."<br>";
-echo "SESSION[fwd_url]: ".$_SESSION['fwd_url']."<br>";
-echo "SESSION[cancel_url]: ".$_SESSION['cancel_url']."<br>";
-echo "SESSION[file_dat]: ".$_SESSION['file_dat']."<br>";
+//echo "SESSION['fileDir'][sys_root]: ".$_SESSION['fileDir']["sys_root"]."<br>";
+echo "SESSION['fileDir'][sys_url]: ".$_SESSION['fileDir']["sys_url"]."<br>";
+echo "SESSION['fileDir'][sys_mainpage]: ".$_SESSION['fileDir']["sys_mainpage"]."<br>";
+//echo "SESSION[fwd_url]: ".$_SESSION['fwd_url']."<br>";
+//echo "SESSION[cancel_url]: ".$_SESSION['cancel_url']."<br>";
+//echo "SESSION[file_dat]: ".$_SESSION['file_dat']."<br>";
 
 echo '<br>[Array of $mainParam]<br>';
 for ($i = 0; $i < count($mainParam); $i++) {

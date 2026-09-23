@@ -76,7 +76,7 @@ $table_name = isset($lines[7][1]) ? trim($lines[7][1]) : '';
             }
             ?>
             <div class="button-group">
-                <a href=<?= $_SESSION['sys_url'].$_SESSION['cancel_url']?> class="btn btn-cancel">Cancel</a>
+                <a href=<?= $_SESSION['fileDir']['sys_url'].$_SESSION['cancel_url']?> class="btn btn-cancel">Cancel</a>
                 <button type="submit" class="btn btn-submit">Submit</button>
             </div>
         </form>

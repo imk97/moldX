@@ -1,26 +1,21 @@
+
 <?php
 
 session_start();
-//session_unset();
 session_destroy();
 session_start();
 
-//$_SESSION["sys_root"] = __DIR__;
-//$_SESSION["sys_url"]="/utmassetx/";
-$_SESSION["sys_url"]="http://utmassetx.pijau.xyz/";
-$_SESSION["sys_mainpage"]=$_SESSION["sys_url"]."main_screen.php?f=0101000000000000000000000000000000000002";
+// LOCAL SERVER
+//$_SESSION['fileDir']["sys_url"]="/utmassetx";
 
-$_SESSION["host"] = 'localhost';
-$_SESSION["user"] = 'ajau';
-$_SESSION["password"] = 'mousehitam';
-$_SESSION["dbname"] = 'utmasset1';
-//var_dump($_SESSION); exit();
-//$conn = mysqli_connect($_SESSION["host"], $_SESSION["user"], $_SESSION["password"], $_SESSION["dbname"]);
+// ALL SERVERS
+$_SESSION['fileDir']["sys_mainpage"]=$_SESSION['fileDir']["sys_url"]."/main_screen.php?f=0101000000000000000000000000000000000002";
 
-//echo $_SESSION["sys_root"]."<br>";
-echo $_SESSION["sys_url"]."<br>";
-echo $_SESSION["sys_mainpage"]."<br>";
+$_SESSION['db']["host"] = 'localhost';
+$_SESSION['db']["user"] = 'ajau';
+$_SESSION['db']["password"] = 'mousehitam';
+$_SESSION['db']["dbname"] = 'utmasset1';
 
-header( "Location: ".$_SESSION["sys_mainpage"]);
+header( "Location: ".$_SESSION['fileDir']["sys_mainpage"]);
 exit();
 ?>

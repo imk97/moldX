@@ -1,0 +1,20 @@
+// MOLDX FORM VER 3 RELEASE SEPT 2026
+.var1,formv2
+.var2,main
+
+.col,title,varDisplay,sessDisplay,fieldNo,dbTable,submitFile,successRedirect,cancelRedirect,uploadFolder
+.data
+1,ADD DEPARTMENT,0,0,8,testtable,/subpages/formv2/formv2_submit_v2.php,/main_screen.php?f=0106010000000000000000000000000000000003,/main_screen.php?f=0101000000000000000000000000000000000002,uploadFolder
+
+.var2,form
+.col,field,label,name,id,size,value,required,readonly,disabled,autofocus,placeholder,maxlength,minlength,pattern,autocomplete,list,min,max,step,checked,multiple,accept,ListSource,HTMLListChoice,HTMLListValue,DBListChoice,DBListValue
+.data
+
+1,text,Nama Jabatan,namaJabatan,namaJab,30,,,,,,Nama Jabatan di sini,,,,,,,,,,,,,,,,
+2,password,Password,pwd,pwdid,15,,,,,,Password here,,,,,,,,,,,,,,,,
+3,email,email,emailName,emallid,15,azhar@gmail.com,,,,Y,Email here,,,,,,,,,,,,,,,,
+4,color,color,colorName,colorId,,#00ff00,,,,,,,,,,,,,,,,,,,,,
+5,text,Nama,namaName,namaId,30,,Y,,,,nota sahaja,,,,,,,,,,,,,,,,
+6,url,URL,urlName,urlId,20,http://,,,,,,,,,,,,,,,,,,,,,
+7,date,Date,date1,date1,,30/08/2026,Y,,,,,,,,,,,,,,,,,,,,
+8,date,Date,date2,date2,,30/08/2026,Y,,,,,,,,,,,,,,,,,,,,
