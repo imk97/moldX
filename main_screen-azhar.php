@@ -142,10 +142,11 @@ $level = menuEngine($menuCode2);
 
   <div class="tengah">
 
-    <div style="display:flex; flex-direction:row; overflow:auto; min-height:100vh;">
+    <!-- <div style="display:flex; flex-direction:row; overflow:auto; min-height:100vh;"> -->
       <div class="menu">
         <?php
         if ($mainParam[1][0] == 1) {
+          // echo $mainParam[1][1];
           include "pages/" . $mainParam[1][1] . ".php";
         }
         ?>
@@ -156,6 +157,7 @@ $level = menuEngine($menuCode2);
         <ul class="breadcrumbs">
           <?php
           if ($mainParam[2][0] == 1) {
+            // echo $mainParam[2][1];
             include "pages/" . $mainParam[2][1] . ".php";
           }
           ?>
