@@ -2,7 +2,7 @@
 
 function menuEngine(string $menuCode) {
     // DECLARATION
-    $dataLength = 106;  // ini boleh automate through metadata jangan through array.size
+    $dataLength = 116;  // ini boleh automate through metadata jangan through array.size
     $menuCodeSlice = []; // initialize
     $data1 = []; // initialize
     //$level = array_fill(0, $dataLength, array_fill(0, 17, 0));

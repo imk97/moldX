@@ -5,8 +5,11 @@ session_start();
 session_destroy();
 session_start();
 
-// LOCAL SERVER
-//$_SESSION['fileDir']["sys_url"]="/utmassetx";
+//$_SESSION["sys_root"] = __DIR__;
+//$_SESSION["sys_url"]="/utmassetx/";
+$_SESSION["sys_url"]="";
+$_SESSION["sys_mainpage"]=$_SESSION["sys_url"]."main_screen.php?f=0101000000000000000000000000000000000002";
+// $_SESSION["sys_mainpage"] = "main_screen.php?f=0101000000000000000000000000000000000002";
 
 // ALL SERVERS
 $_SESSION['fileDir']["sys_mainpage"]=$_SESSION['fileDir']["sys_url"]."/main_screen.php?f=0101000000000000000000000000000000000002";
