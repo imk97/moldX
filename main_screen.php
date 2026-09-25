@@ -41,7 +41,9 @@ $level = menuEngine($menuCode2);
             /* position: relative;
             left: 220px;; */
             margin-left: 220px;
-            padding: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 20px;
             /* background: #555; */
             /* width: 10vw; */
             height: 100%;

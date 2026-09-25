@@ -12,7 +12,7 @@
 
 1,text,Nama Jabatan,namaJabatan,namaJab,30,,,,,,Nama Jabatan di sini,,,,,,,,,,,,,,,,
 2,password,Password,pwd,pwdid,15,,,,,,Password here,,,,,,,,,,,,,,,,
-3,email,email,emailName,emallid,15,azhar@gmail.com,,,,Y,Email here,,,,,,,,,,,,,,,,
+3,email,email,emailName,emallid,15,test@gmail.com,,,,Y,Email here,,,,,,,,,,,,,,,,
 4,color,color,colorName,colorId,,#00ff00,,,,,,,,,,,,,,,,,,,,,
 5,text,Nama,namaName,namaId,30,,Y,,,,nota sahaja,,,,,,,,,,,,,,,,
 6,url,URL,urlName,urlId,20,http://,,,,,,,,,,,,,,,,,,,,,
