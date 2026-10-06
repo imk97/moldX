@@ -6,10 +6,10 @@ session_destroy();
 session_start();
 
 // LOCAL SERVER
-$_SESSION['fileDir']["sys_url"]="/assetx/";
+$_SESSION['fileDir']["sys_url"]="";
 
 // ALL SERVERS
-$_SESSION['fileDir']["sys_mainpage"]=$_SESSION['fileDir']["sys_url"]."/main_screen.php?f=0101000000000000000000000000000000000002";
+$_SESSION['fileDir']["sys_mainpage"]=$_SESSION['fileDir']["sys_url"]."main_screen.php?f=0101000000000000000000000000000000000002";
 
 $_SESSION['db']["host"] = 'localhost';
 $_SESSION['db']["user"] = 'root';
